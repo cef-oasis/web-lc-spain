@@ -1,0 +1,23 @@
+@base <http://linkedconnections.oeg-upm.net/kos/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<vocab> rdf:type skos:ConceptScheme;
+ dct:title "Vocabulary for the metadata of Linked Connections interfaces available in Spain"@en .
+
+<vocab/tram> rdf:type skos:Concept;
+ skos:prefLabel "Tram services used in public transport systems of Spain"@en;
+ skos:inScheme <vocabmetadata>.
+
+<vocab/bus> rdf:type skos:Concept;
+ skos:prefLabel "Buses used in public transport to connect short distances within cities of Spain"@en;
+ skos:inScheme <vocabmetadata>.
+
+<vocab/train> rdf:type skos:Concept;
+ skos:prefLabel "Railway service that connects the cities and provicences of Spain."@en;
+ skos:inScheme <vocabmetadata>.
+
+<vocab/connection> rdf:type skos:Concept;
+ skos:prefLabel "Describes a departure at a certain stop and an arrival at a different stop."@en;
+ skos:inScheme <vocabmetadata>.

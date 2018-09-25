@@ -1,0 +1,345 @@
+@base <http://linkedconnections.oeg-upm.net/metadata/>.
+@prefix adms: <http://www.w3.org/ns/adms#>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix schema: <http://schema.org/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix spdx: <http://spdx.org/rdf/terms#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#>.	
+
+<catalog> a dcat:Catalog ;	
+	dcat:dataset <catalog/barcelona-tbs>, <catalog/barcelona-tbx>, <catalog/caceres-bus>, <catalog/madrid-tram>, <catalog/madrid-train> ; #mandatory
+	dct:description "The Linked Connections interfaces available in Spain" ; #mandatory
+	dct:publisher <catalog/oeg> ; #madantory
+	dct:title "Linked Connections of Spain" ; #mandatory
+	dct:spatial <http://sws.geonames.org/2510769/>; #mandatory
+	foaf:homepage <http://linkedconnections.oeg-upm.net> ; #recommended 
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;  #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dct:issued "2018-09-08"^^xsd:date ; #recommended
+	dcat:themeTaxonomy <http://linkedconnections.oeg-upm.net/kos/vocab> ; #recommended
+	dct:modified "2018-09-08"^^xsd:date ; #recommended
+	dct:rights "public". #optional
+
+<organization/oeg> a foaf:Organization ;
+	foaf:name "Ontology Engineering Group" ; #mandatory
+	dct:type <http://eurovoc.europa.eu/220751>. #recommended
+ 
+
+<catalog/barcelona-tbs> a dcat:Dataset;
+	dct:description "Connections of the tbs tram of Barcelona";	#mandatory
+	dct:title "Connections of TBS (Barcelona-Tram)" ;	#mandatory
+	dct:spatial <http://sws.geonames.org/3128760/>, <http://es.dbpedia.org/page/Barcelona>; #mandatory
+	dcat:keyword "Tram";
+	dcat:keyword "Stops";
+	dcat:keyword "Calendar";
+	dcat:keyword "Routes";
+	dcat:keyword "Trips";
+	dcat:keyword "AdminUnitLevel4 (Municipality): Barcelona"; 	#mandatory
+	dcat:keyword "Spain"; 	#mandatory
+	dcat:contactPoint "<mailto: dchaves@fi.upm.es>" ;	#recommended
+	dcat:distribution <catalog/barcelona-tbs/fragments>, <catalog/barcelona-tbs/jsonld-zip> ;	#recommended
+	dcat:theme <http://linkedconnections.oeg-upm.net/kos/vocab/tram> ;	#recommended
+	dcat:theme <http://linkedconnections.oeg-upm.net/kos/vocab/connection> ; #recommended
+	dct:publisher <organization/oeg> ;	#recommended
+	dct:conformsTo "Linked Connections" ;	#optional
+	foaf:page <http://linkedconnections.oeg-upm.net> ;	#optional
+	dct:accrualPeriodicity <http://purl.org/cld/freq/weekly> ;	#optional
+	dct:identifier "Barcelona-TBS" ;	#optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:source <https://opendata.tram.cat/GTFS/zip/TBS.zip> ;	#optional
+	dct:temporal <catalog/barcelona/valid-period> ;	#optional
+	dct:modified "2018-03-05"^^xsd:date ;	#optional
+	owl:versionInfo	"1.0" ;	#optional
+	dct:accessRights "public" ;	#optional
+	dct:type <http://inspire.ec.europa.eu/metadata-codelist/ResourceType/series> ;	#optional	
+	dct:provenance "This dataset was created with the open data of TRAM (Barcelona) about TBS routes and translated to Linked Connections in the context of the CEF-OASIS EU project".	#optional
+
+<catalog/barcelona-tbs/fragments> a dcat:Distribution;
+	dcat:accessURL <http://tripscore.lab.oeg-upm.net/barcelona/tram/tbs/connections> ; #mandatory
+	dct:description	"The fragments of the connections about tbs-tram Barcelona in JSON-LD" ; #recommended
+	dct:format "JSON-LD" ; #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dcat:downloadURL <http://tripscore.lab.oeg-upm.net/barcelona/tram/tbs/connections> ; #optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:conformsTo "JSON-LD ; #optional
+	dcat:mediaType "application/ld+json" ; #optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:rights "public" ; #optional
+	adms:status "updated" ; #optional
+	dct:title "Connections of TBS tram of Barcelona" ; #optional
+	dct:modified "2018-03-05"^^xsd:date. #optional
+
+<catalog/barcelona-tbs/jsonld-zip> a dcat:Distribution;
+	dcat:accessURL <http://linkedconnections.oeg-upm.net/resources/tbs.jsonld.zip> ; #mandatory
+	dct:description	"The connections about tbs-tram Barcelona in JSON-LD in a zipped file" ; #recommended
+	dct:format "ZIP" ; #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dcat:downloadURL <http://linkedconnections.oeg-upm.net/resources/tbs.jsonld.zip> ; #optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:conformsTo "JSON-LD ; #optional
+	dcat:mediaType "application/zip" ; #optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:rights "public" ; #optional
+	adms:status "updated" ; #optional
+	dct:title "Connections of TBS tram of Barcelona" ; #optional
+	dct:modified "2018-03-05"^^xsd:date. #optional
+
+
+<catalog/barcelona-tbx> a dcat:Dataset;
+	dct:description "Connections of the tbx tram of Barcelona";	#mandatory
+	dct:title "Connections of TBX (Barcelona-Tram)" ;	#mandatory
+	dct:spatial <http://sws.geonames.org/3128760/>, <http://es.dbpedia.org/page/Barcelona>; #mandatory
+	dcat:keyword "Tram";
+	dcat:keyword "Stops";
+	dcat:keyword "Calendar";
+	dcat:keyword "Routes";
+	dcat:keyword "Trips";
+	dcat:keyword "AdminUnitLevel4 (Municipality): Barcelona"; 	#mandatory
+	dcat:keyword "Spain"; 	#mandatory
+	dcat:contactPoint "<mailto: dcahves@fi.upm.es>" ;	#recommended
+	dcat:distribution <catalog/barcelona-tbx/fragments>, <catalog/barcelona-tbx/jsonld-zip>  ;	#recommended
+	dcat:theme <http://linkedconnections.oeg-upm.net/kos/vocab/tram> ;	#recommended
+	dcat:theme <http://linkedconnections.oeg-upm.net/kos/vocab/connection> ; #recommended
+	dct:publisher <organization/oeg> ;	#recommended
+	dct:conformsTo "Linked Connections" ;	#optional
+	foaf:page <http://linkedconnections.oeg-upm.net> ;	#optional
+	dct:accrualPeriodicity <http://purl.org/cld/freq/weekly> ;	#optional
+	dct:identifier "Barcelona-TBX" ;	#optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:source <https://opendata.tram.cat/GTFS/zip/TBX.zip> ;	#optional
+	dct:temporal <catalog/barcelona/valid-period> ;	#optional
+	dct:modified "2018-03-05"^^xsd:date ;	#optional
+	owl:versionInfo	"1.0" ;	#optional
+	dct:accessRights "public" ;	#optional
+	dct:type <http://inspire.ec.europa.eu/metadata-codelist/ResourceType/series> ;	#optional	
+	dct:provenance "This dataset was created with the open data of TRAM (Barcelona) about TBX routes and translated to Linked Connections in the context of the CEF-OASIS EU project".	#optional
+
+<catalog/barcelona-tbx/fragments> a dcat:Distribution;
+	dcat:accessURL <http://tripscore.lab.oeg-upm.net/barcelona/tram/tbx/connections> ; #mandatory
+	dct:description	"The fragments of the connections about tbx-tram Barcelona in JSON-LD" ; #recommended
+	dct:format "JSON-LD" ; #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dcat:downloadURL <http://tripscore.lab.oeg-upm.net/barcelona/tram/tbx/connections> ; #optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:conformsTo "JSON-LD ; #optional
+	dcat:mediaType "application/ld+json" ; #optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:rights "public" ; #optional
+	adms:status "updated" ; #optional
+	dct:title "Connections of TBX tram of Barcelona" ; #optional
+	dct:modified "2018-03-05"^^xsd:date. #optional
+
+<catalog/barcelona-tbx/jsonld-zip> a dcat:Distribution;
+	dcat:accessURL <http://linkedconnections.oeg-upm.net/resources/tbx.jsonld.zip> ; #mandatory
+	dct:description	"The the connections about tbx-tram Barcelona in JSON-LD in a zipped file" ; #recommended
+	dct:format "ZIP" ; #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dcat:downloadURL <http://linkedconnections.oeg-upm.net/resources/tbx.jsonld.zip> ; #optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:conformsTo "JSON-LD ; #optional
+	dcat:mediaType "application/zip" ; #optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:rights "public" ; #optional
+	adms:status "updated" ; #optional
+	dct:title "Connections of TBX tram of Barcelona" ; #optional
+	dct:modified "2018-03-05"^^xsd:date. #optional
+
+<catalog/barcelona/valid-period> a dct:PeriodOfTime;
+	schema:startDate "2018-01-01"^^xsd:date; #optional
+	schema:endDate "2015-12-31"^^xsd:date. #optional
+	
+<catalog/caceres-bus> a dcat:Dataset;
+	dct:description "Connections of the bus in Caceres";	#mandatory
+	dct:title "Connections of Bus in Caceres" ;	#mandatory
+	dct:spatial <http://sws.geonames.org/2520611/>, <http://es.dbpedia.org/page/Caceres>; #mandatory
+	dcat:keyword "Bus";
+	dcat:keyword "Stops";
+	dcat:keyword "Calendar";
+	dcat:keyword "Routes";
+	dcat:keyword "Trips";
+	dcat:keyword "AdminUnitLevel4 (Municipality): Caceres"; 	#mandatory
+	dcat:keyword "Spain"; 	#mandatory
+	dcat:contactPoint "<mailto: dcahves@fi.upm.es>" ;	#recommended
+	dcat:distribution <catalog/caceres-bus/fragments>, <catalog/caceres-bus/jsonld-zip>  ;	#recommended
+	dcat:theme <http://linkedconnections.oeg-upm.net/kos/vocab/bus> ;	#recommended
+	dcat:theme <http://linkedconnections.oeg-upm.net/kos/vocab/connection> ; #recommended
+	dct:publisher <organization/oeg> ;	#recommended
+	dct:conformsTo "Linked Connections" ;	#optional
+	foaf:page <http://linkedconnections.oeg-upm.net> ;	#optional
+	dct:accrualPeriodicity <http://purl.org/cld/freq/weekly> ;	#optional
+	dct:identifier "Caceres-Bus" ;	#optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:source <http://opendata.caceres.es/dataset/286b7f8b-d55e-440d-83fe-4aba4764aa50/resource/cdc83567-3e11-4604-baaa-2cb0d25382b4/download/autobusescacerestransit.zip> ;	#optional
+	dct:temporal <catalog/caceres-bus/valid-period> ;	#optional
+	dct:modified "2018-03-05"^^xsd:date ;	#optional
+	owl:versionInfo	"1.0" ;	#optional
+	dct:accessRights "public" ;	#optional
+	dct:type <http://inspire.ec.europa.eu/metadata-codelist/ResourceType/series> ;	#optional	
+	dct:provenance "This dataset was created with the open data of the buses of the city of Caceres and translated to Linked Connections in the context of the CEF-OASIS EU project".	#optional
+
+<catalog/caceres-bus/fragments> a dcat:Distribution;
+	dcat:accessURL <http://tripscore.lab.oeg-upm.net/caceres/bus/connections> ; #mandatory
+	dct:description	"The fragments of the connections about Caceres bus in JSON-LD" ; #recommended
+	dct:format "JSON-LD" ; #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dcat:downloadURL <http://tripscore.lab.oeg-upm.net/caceres/bus/connections> ; #optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:conformsTo "JSON-LD ; #optional
+	dcat:mediaType "application/ld+json" ; #optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:rights "public" ; #optional
+	adms:status "updated" ; #optional
+	dct:title "Connections of bus of Caceres" ; #optional
+	dct:modified "2018-03-05"^^xsd:date. #optional
+	
+<catalog/caceres-bus/jsonld-zip> a dcat:Distribution;
+	dcat:accessURL <http://linkedconnections.oeg-upm.net/resources/caceres.jsonld.zip> ; #mandatory
+	dct:description	"The connections about Caceres bus in JSON-LD in a zipped file" ; #recommended
+	dct:format "ZIP" ; #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dcat:downloadURL <http://linkedconnections.oeg-upm.net/resources/caceres.jsonld.zip> ; #optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:conformsTo "JSON-LD ; #optional
+	dcat:mediaType "application/zip" ; #optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:rights "public" ; #optional
+	adms:status "updated" ; #optional
+	dct:title "Connections of bus of Caceres" ; #optional
+	dct:modified "2018-03-05"^^xsd:date. #optional
+
+<catalog/caceres-bus/valid-period> a dct:PeriodOfTime;
+	schema:startDate "2017-09-11"^^xsd:date; #optional
+	schema:endDate "2015-12-31"^^xsd:date. #optional	
+
+<catalog/madrid-train> a dcat:Dataset;
+	dct:description "Connections of the train in Madrid";	#mandatory
+	dct:title "Connections of train in Madrid" ;	#mandatory
+	dct:spatial <http://www.geonames.org/3117732/> , <http://es.dbpedia.org/page/Comunidad_de_Madrid> , <http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Comunidad-Madrid> ; #mandatory
+	dcat:keyword "Train";
+	dcat:keyword "Stops";
+	dcat:keyword "Calendar";
+	dcat:keyword "Routes";
+	dcat:keyword "Trips";
+	dcat:keyword "AdminUnitLevel3(Province):Madrid";
+	dcat:keyword "Spain"; 	#mandatory
+	dcat:contactPoint "<mailto: dcahves@fi.upm.es>" ;	#recommended
+	dcat:distribution <catalog/madrid-train/fragments>, <catalog/madrid-train/jsonld-zip>  ;	#recommended
+	dcat:theme <http://linkedconnections.oeg-upm.net/kos/vocab/bus> ;	#recommended
+	dcat:theme <http://linkedconnections.oeg-upm.net/kos/vocab/connection> ; #recommended
+	dct:publisher <organization/oeg> ;	#recommended
+	dct:conformsTo "Linked Connections" ;	#optional
+	foaf:page <http://linkedconnections.oeg-upm.net> ;	#optional
+	dct:accrualPeriodicity <http://purl.org/cld/freq/weekly> ;	#optional
+	dct:identifier "Madrid-Train" ;	#optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:source <http://crtm.maps.arcgis.com/home/item.html?id=1a25440bf66f499bae2657ec7fb40144> ;	#optional
+	dct:temporal <catalog/madrid/valid-period> ;	#optional
+	dct:modified "2018-03-05"^^xsd:date ;	#optional
+	owl:versionInfo	"1.0" ;	#optional
+	dct:accessRights "public" ;	#optional
+	dct:type <http://inspire.ec.europa.eu/metadata-codelist/ResourceType/series> ;	#optional	
+	dct:provenance "This dataset was created with the open data of the train of the province of Madrid and translated to Linked Connections in the context of the CEF-OASIS EU project".	#optional
+
+<catalog/madrid-train/fragments> a dcat:Distribution;
+	dcat:accessURL <http://tripscore.lab.oeg-upm.net/madrid/train/connections> ; #mandatory
+	dct:description	"The fragments of the connections about Madrid train in JSON-LD" ; #recommended
+	dct:format "JSON-LD" ; #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dcat:downloadURL <http://tripscore.lab.oeg-upm.net/madrid/train/connections> ; #optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:conformsTo "JSON-LD ; #optional
+	dcat:mediaType "application/ld+json" ; #optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:rights "public" ; #optional
+	adms:status "updated" ; #optional
+	dct:title "Connections of train of Madrid" ; #optional
+	dct:modified "2018-03-05"^^xsd:date. #optional
+
+<catalog/madrid-train/jsonld-zip> a dcat:Distribution;
+	dcat:accessURL <http://linkedconnections.oeg-upm.net/resources/train.jsonld.zip> ; #mandatory
+	dct:description	"The connections about Madrid train in JSON-LD in a zipped file" ; #recommended
+	dct:format "ZIP" ; #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dcat:downloadURL <http://linkedconnections.oeg-upm.net/resources/train.jsonld.zip> ; #optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:conformsTo "JSON-LD ; #optional
+	dcat:mediaType "application/zip" ; #optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:rights "public" ; #optional
+	adms:status "updated" ; #optional
+	dct:title "Connections of train of Madrid" ; #optional
+	dct:modified "2018-03-05"^^xsd:date. #optional
+
+
+<catalog/madrid-tram> a dcat:Dataset;
+	dct:description "Connections of the tram in Madrid";	#mandatory
+	dct:title "Connections of tram in Madrid" ;	#mandatory
+	dct:spatial <http://www.geonames.org/3117732/> , <http://es.dbpedia.org/page/Comunidad_de_Madrid> , <http://datos.gob.es/recurso/sector-publico/territorio/Autonomia/Comunidad-Madrid> ; #mandatory
+	dcat:keyword "Tram";
+	dcat:keyword "Stops";
+	dcat:keyword "Calendar";
+	dcat:keyword "Routes";
+	dcat:keyword "Trips";
+	dcat:keyword "AdminUnitLevel3(Province):Madrid";
+	dcat:keyword "Spain"; 	#mandatory
+	dcat:contactPoint "<mailto: dcahves@fi.upm.es>" ;	#recommended
+	dcat:distribution <catalog/madrid-tram/fragments>, <catalog/madrid-tram/jsonld-zip> ;	#recommended
+	dcat:theme <http://linkedconnections.oeg-upm.net/kos/vocab/bus> ;	#recommended
+	dcat:theme <http://linkedconnections.oeg-upm.net/kos/vocab/connection> ; #recommended
+	dct:publisher <organization/oeg> ;	#recommended
+	dct:conformsTo "Linked Connections" ;	#optional
+	foaf:page <http://linkedconnections.oeg-upm.net> ;	#optional
+	dct:accrualPeriodicity <http://purl.org/cld/freq/weekly> ;	#optional
+	dct:identifier "Madrid-Tram" ;	#optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:source <http://crtm.maps.arcgis.com/home/item.html?id=1a25440bf66f499bae2657ec7fb40144> ;	#optional
+	dct:temporal <catalog/madrid/valid-period> ;	#optional
+	dct:modified "2018-03-05"^^xsd:date ;	#optional
+	owl:versionInfo	"1.0" ;	#optional
+	dct:accessRights "public" ;	#optional
+	dct:type <http://inspire.ec.europa.eu/metadata-codelist/ResourceType/series> ;	#optional	
+	dct:provenance "This dataset was created with the open data of the tram of the province of Madrid and translated to Linked Connections in the context of the CEF-OASIS EU project".	#optional
+
+<catalog/madrid-train/fragments> a dcat:Distribution;
+	dcat:accessURL <http://tripscore.lab.oeg-upm.net/madrid/tram/connections> ; #mandatory
+	dct:description	"The fragments of the connections about Madrid tram in JSON-LD" ; #recommended
+	dct:format "JSON-LD" ; #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dcat:downloadURL <http://tripscore.lab.oeg-upm.net/madrid/tram/connections> ; #optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:conformsTo "JSON-LD ; #optional
+	dcat:mediaType "application/ld+json" ; #optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:rights "public" ; #optional
+	adms:status "updated" ; #optional
+	dct:title "Connections of tram of Madrid" ; #optional
+	dct:modified "2018-03-05"^^xsd:date. #optional
+
+<catalog/madrid-train/jsonld-zip> a dcat:Distribution;
+	dcat:accessURL <http://linkedconnections.oeg-upm.net/resources/tram.jsonld.zip> ; #mandatory
+	dct:description	"The connections about Madrid tram in JSON-LD in a zipped file" ; #recommended
+	dct:format "ZIP" ; #recommended
+	dct:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ; #recommended
+	dcat:downloadURL <http://linkedconnections.oeg-upm.net/resources/tram.jsonld.zip> ; #optional
+	dct:language <http://id.loc.gov/vocabulary/iso639-1/es> ;	#optional
+	dct:conformsTo "JSON-LD ; #optional
+	dcat:mediaType "application/zip" ; #optional
+	dct:issued "2017-10-01"^^xsd:date ;	#optional
+	dct:rights "public" ; #optional
+	adms:status "updated" ; #optional
+	dct:title "Connections of tram of Madrid" ; #optional
+	dct:modified "2018-03-05"^^xsd:date. #optional
+	
+<catalog/madrid/valid-period> a dct:PeriodOfTime;
+	schema:startDate "2018-01-12"^^xsd:date; #optional
+	schema:endDate "2019-02-12"^^xsd:date. #optional	
